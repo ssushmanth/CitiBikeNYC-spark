@@ -84,8 +84,8 @@ object CitiBikeNYCJob {
     val labeled = features.map { x => LabeledPoint(x(0), Vectors.dense(x(1), x(2), x(3), x(4), x(5), x(6), x(7), x(8), x(9), x(10)))}
     
     // Split data into training (60%) and test (40%).
-    val training = labeled.filter(_.label != 2).randomSplit(Array(0.98, 0.02))(1)
-    val test = labeled.filter(_.label != 2).randomSplit(Array(0.99, 0.01))(1)
+    val training = labeled.filter(_.label != 2).randomSplit(Array(0.40, 0.60))(1)
+    val test = labeled.filter(_.label != 2).randomSplit(Array(0.60, 0.40))(1)
     
     val test_count = test.count
     
